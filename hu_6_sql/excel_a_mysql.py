@@ -1,12 +1,15 @@
 import pandas as pd
-
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
-from getpass import getpass
+
+#Para que lea el .env
+from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 # Cargar el csv limpio de la HU5
-df = pd.read_csv("medicamentos_psoriasis_HU5_limpio.csv")
-
+df = pd.read_csv("../hu_5/medicamentos_psoriasis_HU5_limpio.csv")
 # Comprobar que se ha cargado correctamente
 print(df.shape)
 print(df.head())
@@ -16,8 +19,9 @@ print(df.head())
 # conectarse a MySQL
 url = URL.create(
     "mysql+pymysql",
-    username="tatiana_lamamiedeclairac",
-    password=getpass("Contraseña de MySQL: "),
+    # Obtener las credenciales de MySQL
+    username=os.environ["MYSQL_USER"],
+    password=os.environ["MYSQL_PASSWORD"],
     host="localhost",
     port=3306,
     database="medicamentos_psoriasis"

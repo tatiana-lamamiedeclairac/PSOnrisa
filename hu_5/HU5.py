@@ -9,8 +9,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
 import seaborn as sns #para el gráfico
 import matplotlib.pyplot as plt#para el gráfico
-#1 CARGAMOS LOS DATOS LIMPIOS DE LA HU-4
-df = pd.read_csv("medicamentos_psoriasis_HU4_limpio.csv")
+
+
+#CAMBIOS PARA QUE SE PUEDA HACER LA HU6:
+df = pd.read_csv("../hu_4/medicamentos_psoriasis_HU4_limpio.csv")
 
 
 #2 DEFINIMOS LAS VARIABLES

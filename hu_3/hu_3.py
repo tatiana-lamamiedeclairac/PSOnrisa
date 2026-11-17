@@ -1,6 +1,6 @@
 import pandas as pd
 
-df_medicamentos = pd.read_excel("medicamentos_con_metricas.xlsx")
+df_medicamentos= pd.read_excel("../hu_2_webscrapping/medicamentos_con_metricas.xlsx")
 df_nomenclator = pd.read_excel("nomenclator.xls")
 
 # Tenemos que mirar cómo se llaman las columnas
